@@ -30,28 +30,41 @@ const TimerSettings = ({ setTimer }) => {
 
   return (
     <div>
-      {buttons.map(button => (
+      <div className="row">
+        {buttons.map(button => (
+          <button
+            className="btn btn-primary col-lg-3 rounded-0"
+            key={Math.random()}
+            onClick={() => setTimer(button.timer)}
+          >
+            {button.name}
+          </button>
+        ))}
         <button
-          key={Math.random()}
-          onClick={() => setTimer(button.timer)}
+          className="btn btn-dark col-lg-3 rounded-0"
+          onClick={() => setCustomFormActive(!customFormActive)}
         >
-          {button.name}
+          Custom
         </button>
-      ))}
-      <button onClick={() => setCustomFormActive(!customFormActive)}>
-        Custom
-      </button>
+      </div>
 
-      {customFormActive && <form onSubmit={handleCustomFormSubmit}>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" style={{ width: '4rem' }} />
-        <label htmlFor="hours">Hours</label>
-        <input type="number" id="hours" defaultValue="0" min="0" style={{ width: '2rem' }} />
-        <label htmlFor="minutes">Minutes</label>
-        <input type="number" id="minutes" defaultValue="0" min="0" style={{ width: '2rem' }} />
-        <label htmlFor="seconds">Seconds</label>
-        <input type="number" id="seconds" defaultValue="0" min="0" style={{ width: '2rem' }} />
-        <button>Add</button>
+      {customFormActive && <form
+        className="row mt-5"
+        onSubmit={handleCustomFormSubmit}
+      >
+        <div className="row m-0 p-0 input-group mb-3">
+          <label className="input-group-text col-md-2 rounded-0" id="name-label" htmlFor="name-input">Name</label>
+          <input type="text" className="form-control col-md-10 rounded-0" id="name-input" placeholder="Timer" aria-label="Name" aria-describedby="name-label" />
+        </div>
+        <div className="row m-0 p-0 input-group mb-3">
+          <label className="input-group-text col-md-2 rounded-0" id="hours-label" htmlFor="hours-input">Hours</label>
+          <input type="number" className="form-control col-md-2 rounded-0" id="hours-input" defaultValue="0" min="0" aria-label="Hours" aria-describedby="hours-label" />
+          <label className="input-group-text col-md-2 rounded-0" id="minutes-label" htmlFor="minutes-input">Minutes</label>
+          <input type="number" className="form-control col-md-2 rounded-0" id="minutes-input" defaultValue="0" min="0" aria-label="Minutes" aria-describedby="minutes-label" />
+          <label className="input-group-text col-md-2 rounded-0" id="seconds-label" htmlFor="seconds-input">Seconds</label>
+          <input type="number" className="form-control col-md-2 rounded-0" id="seconds-input" defaultValue="0" min="0" aria-label="Seconds" aria-describedby="seconds-label" />
+        </div>
+        <button className="btn btn-primary btn-block mb-5 rounded-0">Add</button>
       </form>}
     </div>
   );
