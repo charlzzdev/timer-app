@@ -24,9 +24,9 @@ const Timer = ({ timer, setTimer }) => {
   }, [setTimer, timer]);
 
   return (
-    <div>
+    <h1 className="text-center display-1 font-weight-normal my-5">
       {secondsToTime(timer)}
-    </div>
+    </h1>
   );
 }
 
