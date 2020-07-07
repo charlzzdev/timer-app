@@ -34,7 +34,7 @@ const CustomStackedTimer = ({ setButtons }) => {
     }]);
   }
 
-  const addNewTimer = () => {
+  const addNewTimerRow = () => {
     setTimerCount([...timerCount, timerCount[timerCount.length - 1] + 1]);
   }
 
@@ -73,7 +73,7 @@ const CustomStackedTimer = ({ setButtons }) => {
         type="button"
         value="Add new row"
         className="btn btn-primary btn-block mb-1 rounded-0"
-        onClick={addNewTimer}
+        onClick={addNewTimerRow}
       />
       <button className="btn btn-primary btn-block mb-5 rounded-0">Done</button>
     </form>
