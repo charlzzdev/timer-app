@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import secondsToTime from '../utils/secondsToTime';
 import playSound from '../utils/playSound';
 
-const Timer = ({ timer, setTimer }) => {
+const Timer = ({ timer, setTimer, paused }) => {
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval = !paused && setInterval(() => {
       // simple timer
       if (typeof timer === 'number') {
         // start playing the sound without waiting another second at 00:00:00
@@ -46,10 +46,10 @@ const Timer = ({ timer, setTimer }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [setTimer, timer]);
+  }, [setTimer, timer, paused]);
 
   return (
-    <h1 className="text-center display-1 font-weight-normal my-5">
+    <h1 className={`${paused ? 'text-muted' : ''} text-center display-1 font-weight-normal my-5`}>
       {secondsToTime(typeof timer === 'number' ? timer : timer[0])}
     </h1>
   );
