@@ -8,7 +8,11 @@ const App = () => {
 
   useEffect(() => {
     // pause timer after pressing the space key
-    const handleKeyup = e => e.key === ' ' && setPaused(!paused);
+    const handleKeyup = e => {
+      e.key === ' ' && setPaused(!paused);
+
+      parseInt(e.key) >= 0 && setTimer(e.key * 60);
+    };
     document.addEventListener('keyup', handleKeyup);
 
     // remove event listener before each re-render
