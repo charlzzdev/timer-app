@@ -8,7 +8,11 @@ const App = () => {
 
   useEffect(() => {
     // pause timer after pressing the space key
-    const handleKeyup = e => e.key === ' ' && setPaused(!paused);
+    const handleKeyup = e => {
+      e.key === ' ' && setPaused(!paused);
+
+      parseInt(e.key) >= 0 && setTimer(e.key * 60);
+    };
     document.addEventListener('keyup', handleKeyup);
 
     // remove event listener before each re-render
@@ -18,6 +22,9 @@ const App = () => {
   return (
     <div className="mx-auto w-50">
       <Timer timer={timer} setTimer={setTimer} paused={paused} />
+      <div className="alert alert-info" role="alert">
+        Press <strong>space</strong> to pause/resume and keys <strong>0-9</strong> or the buttons below to start/reset the timer.
+      </div>
       <TimerSettings setTimer={setTimer} />
     </div>
   );
