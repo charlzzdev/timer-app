@@ -22,6 +22,9 @@ const App = () => {
   return (
     <div className="mx-auto w-50">
       <Timer timer={timer} setTimer={setTimer} paused={paused} />
+      <div className="alert alert-info" role="alert">
+        Press <strong>space</strong> to pause/resume and keys <strong>0-9</strong> or the buttons below to start/reset the timer.
+      </div>
       <TimerSettings setTimer={setTimer} />
     </div>
   );
