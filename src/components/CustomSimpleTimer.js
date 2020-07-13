@@ -23,7 +23,7 @@ const CustomSimpleTimer = ({ setButtons }) => {
 
   return (
     <form
-      className="row mt-5"
+      className="row w-100 mt-5 mx-auto"
       onSubmit={handleCustomSimpleFormSubmit}
     >
       <h1 className="p-0 mb-4">Add a Custom Simple Timer</h1>

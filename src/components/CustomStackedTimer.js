@@ -44,7 +44,7 @@ const CustomStackedTimer = ({ setButtons }) => {
 
   return (
     <form
-      className="row mt-5"
+      className="row w-100 mt-5 mx-auto"
       onSubmit={handleCustomStackedFormSubmit}
     >
       <h1 className="p-0 mb-4">Add a Custom Stacked Timer</h1>

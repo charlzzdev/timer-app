@@ -14,7 +14,7 @@ const TimerSettings = ({ setTimer }) => {
 
   return (
     <div>
-      <div className="row">
+      <div className="row w-100 mx-auto">
         {buttons.map(button => (
           <button
             className="btn btn-primary col-lg-3 rounded-0"
