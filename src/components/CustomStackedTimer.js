@@ -61,12 +61,14 @@ const CustomStackedTimer = ({ setButtons }) => {
         <input type="number" className="form-control col-md-2 rounded-0" id={`minutes-input${t}`} defaultValue="0" min="0" aria-label="Minutes" aria-describedby={`minutes-label${t}`} />
         <label className="input-group-text col-md-2 rounded-0" id={`seconds-label${t}`} htmlFor={`seconds-input${t}`}>Seconds</label>
         <input type="number" className="form-control col-md-2 rounded-0" id={`seconds-input${t}`} defaultValue="0" min="0" aria-label="Seconds" aria-describedby={`seconds-label${t}`} />
-        {t > 2 && <button
+        {t > 2 && <input
+          type="button"
           className="btn text-danger position-absolute"
+          value="X"
           style={{ width: '1rem', right: '-28px' }}
           title="Delete row"
           onClick={() => deleteTimerRow(t)}
-        >X</button>}
+        />}
       </div>)}
 
       <input
