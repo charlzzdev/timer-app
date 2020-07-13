@@ -9,6 +9,8 @@ const App = () => {
   useEffect(() => {
     // pause timer after pressing the space key
     const handleKeyup = e => {
+      if (e.target.tagName === 'INPUT') return;
+
       e.key === ' ' && setPaused(!paused);
 
       parseInt(e.key) >= 0 && setTimer(e.key * 60);
